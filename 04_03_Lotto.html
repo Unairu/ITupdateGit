@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 20px
+        }
+
+        div
+        {
+            text-align: center;
+            float: left;
+            margin: 20px;
+            padding-left: 50px;
+        }
+        
+        .ball1
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: red;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+        .ball1 > p
+        {
+            padding-top: auto;
+            margin: auto;
+            text-align: center;
+            width : 10px;
+            height: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #fff;
+            border-radius: 100%;
+        }
+
+        .ball2
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: yellow;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+
+        .ball3
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: green;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+
+
+        .ball4
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: blue;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+
+
+        .ball5
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: yellow;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+
+
+        .ball6
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: yellow;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+
+
+        .ball2
+        {
+            text-align: center;
+            width: 50px;
+            height: 75px;
+            background-color: yellow;
+            border-radius: 100%;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px #000;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lotto</h2>
+
+    <!-- <button>번호 추출</button> -->
+
+    <script>
+        'use script'
+        var total_lotto = [0, 0, 0, 0, 0, 0, 0]
+       
+        for(var i=0; i<total_lotto.length; i++)
+        {
+            var lotto_01 = 0;
+            var lotto_02 = 0;
+            lotto_01 = Math.random();
+            lotto_01 = lotto_01 * 45 + 1;
+            lotto_01 = Math.floor(lotto_01);
+            console.log(lotto_01);
+            total_lotto[i] = lotto_01;
+           
+            //document.write(total_lotto[i]);
+            for(var j=0; j<i; j++)
+                {
+                    if (total_lotto[i] == total_lotto[j])
+                    {
+                       i--;
+                       break;
+                    }
+                }
+          
+        }
+
+       
+
+        console.log(total_lotto);
+    </script>
+
+    <div class="ball1">
+        <p id=lotto0><script> document.write(total_lotto[0]);</script></p>
+    </div>     
+    <div class="ball2">
+        <p id=lotto1><script> document.write(total_lotto[1]);</script></p>
+    </div>         
+    <div class="ball3">
+        <p id=lotto2><script> document.write(total_lotto[2]);</script></p>
+    </div>         
+    <div class="ball4">
+        <p id=lotto3><script> document.write(total_lotto[3]);</script></p>
+    </div>         
+    <div class="ball5">
+        <p id=lotto4><script> document.write(total_lotto[4]);</script></p>
+    </div>         
+    <div class="ball6">
+        <p id=lotto5><script> document.write(total_lotto[5]);</script></p>
+    </div>         
+
+    <div class="ball7">
+        <p id=lotto6><script> document.write(total_lotto[6]);</script></p>
+    </div>         
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주사위 게임</title>
+</head>
+<body>
+    <script>
+
+        console.log('-----------주사위 게임---------------');
+   
+        while(1)
+        {
+            const jusawi = Number(prompt('주사위 숫자를 입력하세요(1 ~ 6)'));
+            let computer_jusawi = Math.random();
+            computer_jusawi = computer_jusawi * 6 + 1;
+            computer_jusawi = Math.floor(computer_jusawi);
+
+            if (jusawi == computer_jusawi)
+            {
+                console.log(`주사위 번호가 맞습니다. U > ${jusawi}, Computer > ${computer_jusawi}`);
+                break;
+            }
+            else
+            {
+                console.log(`주사위 번호가 틀립니다. U > ${jusawi}, Computer > ${computer_jusawi}`);
+            }
+        }
+
+        console.log('-----------주사위 게임 끝---------------');
+    
+    </script>
+</body>
+</html>

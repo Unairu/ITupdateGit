@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+<body>
+    <script>
+
+        console.log('-----------가위바위보 게임---------------');
+        let flag = false;
+        // const i=0;
+        while(1)
+        {
+            const gawibawibo = prompt('가위, 바위, 보 게임을 하기 위하여 가위, 바위, 보를 입력하세요');
+            var com_gawibawibo = '없음';
+            let computer_gawibawibo = Math.random();
+            computer_gawibawibo = computer_gawibawibo * 3 + 1;
+            computer_gawibawibo = Math.floor(computer_gawibawibo);
+            // 1=가위, 2=바위, 3=보
+
+            console.log('-----------가위바위보 게임 진행 中---------------');
+            // console.log(`당신은 ${gawibawibo}, 컴퓨터는 ${com_gawibawibo}`);
+
+            switch(gawibawibo)
+            {
+                case "가위":
+                    if(computer_gawibawibo == 1)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 가위로 비겼습니다.`);
+                    }
+                    if(computer_gawibawibo == 2)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 바위로 졌습니다.`);
+                    }
+                    if(computer_gawibawibo == 3)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 보로 이겼습니다.`);
+                        flag = true;
+                    }
+                    break;
+                case '바위':
+                    if(computer_gawibawibo == 1)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 가위로 이겼습니다.`);
+                        flag = true;
+                    }
+                    if(computer_gawibawibo == 2)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 바위로 비겼습니다.`);
+                       
+                    }
+                    if(computer_gawibawibo == 3)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 보로 졌습니다.`);
+                    }
+                    break;
+                case '보':
+                    if(computer_gawibawibo == 1)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 가위로 졌습니다.`);
+                    }
+                    if(computer_gawibawibo == 2)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 바위로 이겼습니다.`);
+                        flag = true;
+                    }
+                    if(computer_gawibawibo == 3)
+                    {
+                        console.log(`당신은 ${gawibawibo}, 컴퓨터는 보로 비겼습니다.`);
+                    }
+                    break;
+            }
+            
+            
+            if(flag == true)
+            {
+                console.log('당신은 가위바위보 게임에서 컴퓨터를 이겨서 게임을 종료합니다.');
+                break;
+            }
+           
+            
+            
+        }
+
+        console.log('-----------가위바위보 게임 끝---------------');
+    
+    </script>
+</body>
+</html>
