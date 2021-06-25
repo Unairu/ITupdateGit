@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주민번호</title>
+</head>
+<body>
+    <h2>주민번호 유효성 평가 프로그램</h2>
+    <script>
+        'use strict';
+        
+    let num = new Array(11);
+    
+
+    function func1(){
+        
+         num[0] = CZnumber[1] * 2;
+         num[1] = CZnumber[2] * 3;
+         num[2] = CZnumber[3] * 4;
+         num[3] = CZnumber[4] * 5;
+         num[4] = CZnumber[5] * 6;
+         num[5] = CZnumber[6] * 7;
+         num[6] = CZnumber[7] * 8;
+         num[7] = CZnumber[8] * 9;
+         num[8] = CZnumber[9] * 2;
+         num[9] = CZnumber[2] * 3;
+         num[10] = CZnumber[3] * 4;
+         num[11] = CZnumber[4] * 5;
+         
+         console.log(num);
+         
+        let sum = 0;
+        for(let i=0; i<num.length; i++){
+            sum += num[i];
+        }console.log(`func1의 합 : ${sum}`);
+        return sum;
+    }
+    
+
+    function func2(sum){
+        let result = 0;
+        let result1 = 0;
+        let result2 = 0;
+
+        result1 = sum % 11;
+        result2 = 11 - result1;
+        console.log(`func2의 1차 검출 결과 : ${result2}`);
+        result = result2;
+
+        if(result2>=10){
+            console.log(`결과값에서 11으로 뺀 후에도 10을 넘어가는지 확인합니다...`)
+            console.log(`결과 값이 10의 값을 넘어가 10으로 나누어 나머지 값을 재산출 합니다...`)
+            let result3 = result2 % 10;
+            console.log(`func2의 2차 검출 나머지 : ${result3}`);
+            result = result3;
+        }
+        
+        return result;
+    }
+
+    function func3(result, CZnumber){
+        result == CZnumber[14];    
+    }
+        
+        
+    
+    let CZnumber = new Array(14);
+    
+    
+    CZnumber[0] = prompt(`당신의 이름을 입력하세요", "`);
+        
+	for(let i=1 ; i<CZnumber.length; i++) {
+        
+		CZnumber[i] = prompt(`${i}번쨰 주민번호 입력", "`);
+	}
+    
+
+    CZnumber.forEach(element => console.log(element));
+    console.log(CZnumber);
+
+    console.log('---------');
+    func1();
+    console.log('---------');
+    func2();
+
+    </script>
+</body>
+</html>
