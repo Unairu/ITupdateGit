@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>측정값 예측 계산기</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 20px; background-color: #f4f7f6; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; color: #333; font-size: 1.2rem; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #666; }
+        input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        .result-box { margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: 8px; text-align: center; }
+        .result-label { font-size: 0.9rem; color: #2e7d32; margin-bottom: 5px; }
+        .result-value { font-size: 1.5rem; font-weight: bold; color: #1b5e20; }
+        hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>측정값 예측 (보간법)</h2>
+    
+    <div class="input-group">
+        <label>목표 기준값 (Target)</label>
+        <input type="number" id="target" value="10.0" oninput="calculate()">
+    </div>
+    
+    <hr>
+    
+    <div style="display: flex; gap: 10px;">
+        <div class="input-group">
+            <label>Low 기준값</label>
+            <input type="number" id="lowRef" value="0.4" oninput="calculate()">
+        </div>
+        <div class="input-group">
+            <label>Low 측정값</label>
+            <input type="number" id="lowMea" value="0.4" oninput="calculate()">
+        </div>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+        <div class="input-group">
+            <label>Hi 기준값</label>
+            <input type="number" id="hiRef" value="18.0" oninput="calculate()">
+        </div>
+        <div class="input-group">
+            <label>Hi 측정값</label>
+            <input type="number" id="hiMea" value="17.1" oninput="calculate()">
+        </div>
+    </div>
+
+    <div class="result-box">
+        <div class="result-label">예상 측정 결과값</div>
+        <div class="result-value" id="result">9.509</div>
+    </div>
+</div>
+
+<script>
+function calculate() {
+    // 입력값 가져오기
+    const target = parseFloat(document.getElementById('target').value);
+    const lowRef = parseFloat(document.getElementById('lowRef').value);
+    const lowMea = parseFloat(document.getElementById('lowMea').value);
+    const hiRef = parseFloat(document.getElementById('hiRef').value);
+    const hiMea = parseFloat(document.getElementById('hiMea').value);
+
+    // 유효성 검사 (0으로 나누기 방지 등)
+    if (hiRef === lowRef || isNaN(target)) {
+        document.getElementById('result').innerText = "-";
+        return;
+    }
+
+    // 선형 보간 공식
+    // Result = LowMea + (HiMea - LowMea) / (HiRef - LowRef) * (Target - LowRef)
+    const slope = (hiMea - lowMea) / (hiRef - lowRef);
+    const prediction = lowMea + slope * (target - lowRef);
+
+    // 결과 출력 (소수점 3자리)
+    document.getElementById('result').innerText = prediction.toLocaleString(undefined, {
+        minimumFractionDigits: 3,
+        maximumFractionDigits: 3
+    });
+}
+
+// 초기 실행
+calculate();
+</script>
+
+</body>
+</html>
